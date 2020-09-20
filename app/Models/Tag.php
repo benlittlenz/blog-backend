@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Tag extends Model
 {
@@ -11,4 +12,8 @@ class Tag extends Model
 
     protected $guarded = [];
 
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class);
+    }
 }
