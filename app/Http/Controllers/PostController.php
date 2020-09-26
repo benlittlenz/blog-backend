@@ -10,8 +10,7 @@ class PostController extends Controller
 {
     public function show(Request $request)
     {
-        $post = Post::where('id', $request->id)->get();
+        $post = Post::where('slug', '=', $request->slug)->get();
         return PostResource::collection($post);
-
     }
 }
